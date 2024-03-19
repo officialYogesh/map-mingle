@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import Chip from "@mui/material/Chip";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon } from "leaflet";
 
 const Map = () => {
@@ -39,15 +39,17 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
-      {markers.map((marker) => (
-        <Marker
-          key={marker.geocode}
-          position={marker.geocode}
-          icon={customMarkerIcon}
-        >
-          <Popup>{marker.popUp}</Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup chunkedLoading>
+        {markers.map((marker) => (
+          <Marker
+            key={marker.geocode}
+            position={marker.geocode}
+            icon={customMarkerIcon}
+          >
+            <Popup>{marker.popUp}</Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };
