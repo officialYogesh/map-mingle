@@ -9,7 +9,7 @@ function Header() {
   return (
     <AppBar position="static" color="default">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters className="flex justify-center">
           <NavigationIcon sx={{ display: { xs: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
