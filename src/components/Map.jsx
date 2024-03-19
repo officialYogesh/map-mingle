@@ -46,7 +46,10 @@ const Map = () => {
             position={marker.geocode}
             icon={customMarkerIcon}
           >
-            <Popup>{marker.popUp}</Popup>
+            <Popup>
+              {marker.popUp} <br />
+              Location: {marker.geocode[0]}, {marker.geocode[1]}
+            </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>
