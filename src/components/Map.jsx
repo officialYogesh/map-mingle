@@ -5,7 +5,7 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon } from "leaflet";
 
 const Map = () => {
-  const [markers, setMarkers] = useState([
+  const [markers] = useState([
     {
       geocode: [33.97791908665812, -117.33147563686414],
       popUp: "Getaway Cafe",
